@@ -10,6 +10,8 @@ console.log(path.join(__dirname, '../public'))
 
 const app = express()
 
+const port = process.env.PORT || 3000 //this is for heroku 
+
 const publicDirectoryPath = path.join(__dirname, '../public')
 const pathForViewsFolder = path.join(__dirname, '../templates/views')
 const pathForPartialsFolder = path.join(__dirname, '../templates/partials')
@@ -85,6 +87,6 @@ app.get('*', (req, res) => {
     res.send('My 404 page')
 })
 
-app.listen(3000, () => {
-    console.log('server is up on port 3000')
+app.listen(port, () => {
+    console.log('server is up on port ',port)
 })
